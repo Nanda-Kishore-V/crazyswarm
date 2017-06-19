@@ -73,6 +73,7 @@ class Crazyflie:
         self.planner.home = arr2vec(initialPosition)
         self.planner.lastKnownPosition = arr2vec(initialPosition)
         self.group = 0
+        self.light = False
 
     def setGroup(self, group):
         self.group = group
@@ -170,6 +171,9 @@ class Crazyflie:
             pitch = math.asin(-x_body[2])
             roll = math.atan2(y_body[2], z_body[2])
             return (roll, pitch, yaw)
+
+    def light_switch(self, state):
+        self.light = state
 
     # "private" methods
     def _vposition(self):
